@@ -2,6 +2,6 @@
 
 <h1 align="center">Helios Launcher</h1>
 
-<em><h5 align="center">(formerly Electron Launcher)</h5></em>
+<em><h5 align="center">Launcher pour le Astolfo Client</h5></em>
 
 ![Screenshot 1](https://cdn.discordapp.com/attachments/988177143492141119/992412605253697606/banniere.png)
