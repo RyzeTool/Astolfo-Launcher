@@ -5,3 +5,5 @@
 <em><h5 align="center">Launcher pour le Astolfo Client</h5></em>
 
 ![Screenshot 1](https://cdn.discordapp.com/attachments/988177143492141119/992412605253697606/banniere.png)
+
+<em><h5 align="center">Merci à Danizl Scalzi pour avoir fait la base du launcher !</h5></em>
