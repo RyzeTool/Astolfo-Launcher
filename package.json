@@ -2,8 +2,8 @@
   "name": "astolfoclient",
   "version": "1.9.0",
   "productName": "astolfoclient",
-  "description": "Launcher du astolfo client",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/) & Ryze",
+  "description": "Astolfo's Launcher",
+  "author": "Daniel Scalzi (https://github.com/dscalzi/) & Ryze & NomaPech",
   "license": "UNLICENSED",
   "homepage": "https://github.com/RyzeTool/Astolfo-Launcher",
   "bugs": {
