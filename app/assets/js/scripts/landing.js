@@ -222,9 +222,6 @@ const refreshServerStatus = async function(fade = false){
     loggerLanding.log('Refreshing Server Status')
     const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
 
-    let pLabel = 'SERVER'
-    let pVal = 'OFFLINE'
-
     try {
         const serverURL = new URL('my://' + serv.getAddress())
 
@@ -249,6 +246,17 @@ const refreshServerStatus = async function(fade = false){
     }
     
 }
+
+var discord_key = "991819309309505617";
+var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open("GET", "https://discord.com/api/guilds/" + discord_key + "/embed.json", true);
+    xmlHttpRequest.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var d = JSON.parse(this.responseText);
+            document.getElementById("discordCount").innerHTML = d.presence_count;
+        }  
+    };  
+xmlHttpRequest.send();
 
 refreshMojangStatuses()
 // Server Status is refreshed in uibinder.js on distributionIndexDone.
