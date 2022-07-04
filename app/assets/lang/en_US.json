@@ -1,11 +1,11 @@
 {
     "html": {
-        "avatarOverlay": "Edit"
+        "avatarOverlay": "Modifier"
     },
     "js": {
         "login": {
             "error": {
-                "invalidValue": "* Valeur invalide",
+                "invalidValue": "* Valeur incorrecte",
                 "requiredValue": "* Requis",
                 "userMigrated": {
                     "title": "Erreur lors de la connexion :<br>Identifiants non valides",
@@ -36,7 +36,7 @@
                 }
             },
             "login": "CONNEXION",
-            "loggingIn": "SE CONNECTER",
+            "loggingIn": "CONNEXION EN COURS",
             "success": "SUCCÈS",
             "tryAgain": "Réessayer"
         },
