@@ -8,4 +8,4 @@
 
 <h1 align="center"></h1>
 
-<em><h5 align="center">Merci à Danizl Scalzi pour avoir fait la base du launcher !</h5></em>
+<em><h5 align="center">Merci à [Daniel Scalzi](https://github.com/dscalzi/HeliosLauncher) pour avoir fait la base du launcher ! </h5></em>
