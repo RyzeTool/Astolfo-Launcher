@@ -144,14 +144,14 @@ function updateSelectedServer(serv){
     }
     ConfigManager.setSelectedServer(serv != null ? serv.getID() : null)
     ConfigManager.save()
-    server_selection_button.innerHTML = '\u2022 ' + (serv != null ? serv.getName() : 'No Server Selected')
+    server_selection_button.innerHTML = '\u2022 ' + (serv != null ? serv.getName() : 'Aucun client sélectionée')
     if(getCurrentView() === VIEWS.settings){
         animateModsTabRefresh()
     }
     setLaunchEnabled(serv != null)
 }
 // Real text is set in uibinder.js on distributionIndexDone.
-server_selection_button.innerHTML = '\u2022 Loading..'
+server_selection_button.innerHTML = '\u2022 Veuillez patienter...'
 server_selection_button.onclick = (e) => {
     e.target.blur()
     toggleServerSelection(true)
@@ -161,7 +161,7 @@ server_selection_button.onclick = (e) => {
 const refreshMojangStatuses = async function(){
     loggerLanding.log('Refreshing Mojang Statuses..')
 
-    let status = 'grey'
+    let status = 'green'
     let tooltipEssentialHTML = ''
     let tooltipNonEssentialHTML = ''
 
@@ -175,7 +175,6 @@ const refreshMojangStatuses = async function(){
     }
     
     greenCount = 0
-    greyCount = 0
 
     for(let i=0; i<statuses.length; i++){
         const service = statuses[i]
@@ -192,13 +191,13 @@ const refreshMojangStatuses = async function(){
             </div>`
         }
 
-        if(service.status === 'yellow' && status !== 'red'){
-            status = 'yellow'
+        if(service.status === 'red' && status !== 'red'){
+            status = 'red'
         } else if(service.status === 'red'){
             status = 'red'
         } else {
-            if(service.status === 'grey'){
-                ++greyCount
+            if(service.status === 'green'){
+                ++greenCount
             }
             ++greenCount
         }
@@ -206,8 +205,8 @@ const refreshMojangStatuses = async function(){
     }
 
     if(greenCount === statuses.length){
-        if(greyCount === statuses.length){
-            status = 'grey'
+        if(greenCount === statuses.length){
+            status = 'green'
         } else {
             status = 'green'
         }
@@ -227,7 +226,7 @@ const refreshServerStatus = async function(fade = false){
 
         const servStat = await getServerStatus(47, serverURL.hostname, Number(serverURL.port))
         console.log(servStat)
-        pLabel = 'PLAYERS'
+        pLabel = 'EN LIGNE&nbsp;&nbsp;'
         pVal = servStat.players.online + '/' + servStat.players.max
 
     } catch (err) {
@@ -247,6 +246,10 @@ const refreshServerStatus = async function(fade = false){
     
 }
 
+refreshMojangStatuses()
+
+// Discord membre en ligne
+
 var discord_key = "991819309309505617";
 var xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.open("GET", "https://discord.com/api/guilds/" + discord_key + "/embed.json", true);
@@ -256,9 +259,8 @@ var xmlHttpRequest = new XMLHttpRequest();
             document.getElementById("discordCount").innerHTML = d.presence_count;
         }  
     };  
-xmlHttpRequest.send();
+xmlHttpRequest.send();  
 
-refreshMojangStatuses()
 // Server Status is refreshed in uibinder.js on distributionIndexDone.
 
 // Set refresh rate to once every 5 minutes.
