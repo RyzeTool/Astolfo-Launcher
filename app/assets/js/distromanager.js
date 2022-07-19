@@ -537,7 +537,7 @@ exports.pullRemote = function(){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
-        const distroURL = 'https://gist.githubusercontent.com/NomaPech/68f99b5a8c5537fca37c81cba9a9b16a/raw/'
+        const distroURL = 'https://zallushop.fr/launcher/distribution.json'
         const opts = {
             url: distroURL,
             timeout: 2500
